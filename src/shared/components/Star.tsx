@@ -16,6 +16,9 @@ interface StarProps {
   iconEnd?: ReactNode;
   iconStart?: ReactNode;
   iconStart1?: ReactNode;
+  loading?: boolean;
+  disabled?: boolean;
+  onClick?: () => void;
 }
 
 export default function Star({
@@ -34,6 +37,9 @@ export default function Star({
   iconEnd,
   iconStart,
   iconStart1,
+  loading = false,
+  disabled = false,
+  onClick,
 }: StarProps) {
   const starStyle = useMemo(
     () => ({
@@ -49,12 +55,20 @@ export default function Star({
   return (
     <button
       type="button"
-      className={`rounded-lg border-2 border-neutral-800 bg-neutral-900 text-white shadow-md transition-colors hover:bg-black hover:border-black focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 overflow-hidden flex items-center justify-center px-5 py-3 gap-2 text-left text-body-size-medium font-body-font-family font-medium cursor-pointer ${className}`}
+      disabled={disabled || loading}
+      onClick={onClick}
+      className={`rounded-lg border-2 border-neutral-800 bg-neutral-900 text-white shadow-md transition-colors hover:bg-black hover:border-black focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 overflow-hidden flex items-center justify-center px-5 py-3 gap-2 text-left text-body-size-medium font-body-font-family font-medium cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed ${className}`}
       style={starStyle}
     >
-      {iconStart1}
-      <span className="relative leading-[100%] shrink-0">{label}</span>
-      {iconEnd}
+      {loading ? (
+        <span className="inline-block h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" aria-hidden />
+      ) : (
+        <>
+          {iconStart1}
+          <span className="relative leading-[100%] shrink-0">{label}</span>
+          {iconEnd}
+        </>
+      )}
     </button>
   );
 }

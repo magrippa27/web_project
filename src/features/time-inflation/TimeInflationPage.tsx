@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
-import HeroImage from "../../assets/clock.jpg";
+import HeroImage from "../../assets/coins.jpg";
 import CountrySelect, { getCountryName } from "../../shared/components/CountrySelect";
 import Star from "../../shared/components/Star";
 import { Card, CardContent, CardHeader } from "../../shared/components/ui";
 import { Input } from "../../shared/components/ui";
 
-export default function TimeCost1Page() {
+export default function TimeInflationPage() {
   const resultsRef = useRef<HTMLDivElement>(null);
   const [country, setCountry] = useState("");
   const [age, setAge] = useState("");
@@ -45,11 +45,11 @@ export default function TimeCost1Page() {
         </div>
         <div className="relative z-10 flex flex-col items-center gap-4 text-center leading-[1.2] text-text-utilities-text-on-overlay font-title-hero-font-family max-w-[900px]">
           <h1 className="m-0 font-title-hero-font-weight text-[clamp(4rem,10vw,7rem)] tracking-[-2.16px]">
-            Time-Cost
+            Inflation-Cost
           </h1>
           <div className="flex flex-col items-center text-[clamp(1.75rem,4vw,3rem)] font-subtitle-font-family font-normal">
-            <p className="m-0">Politics doesn’t just take your money.</p>
-            <p className="m-0">It takes your time.</p>
+            <p className="m-0">Inflation doesn’t just eats your salary.</p>
+            <p className="m-0">It eats your time.</p>
           </div>
         </div>
       </section>

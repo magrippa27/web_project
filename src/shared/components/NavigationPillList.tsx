@@ -14,8 +14,8 @@ interface NavigationPillListProps {
 }
 
 const DEFAULT_NAV_ITEMS: NavItem[] = [
-  { to: "/", label: "Time-Cost", show: true },
-  { to: "/time-cost-2", label: "Time-Inflation", show: true },
+  { to: "/time-cost", label: "Time-Cost", show: true },
+  { to: "/time-inflation", label: "Time-Inflation", show: true },
   { to: "/time-cost-6", label: "How to fix Democracy?", show: true },
   { to: "#", label: "Resources", show: false },
   { to: "#", label: "Pricing", show: false },
