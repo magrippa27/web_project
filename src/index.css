@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Helvetica+Neue:ital,wght@0,400;0,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=SF+Pro+Text:ital,wght@0,400;0,500&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --font-sans: Inter, system-ui, ui-sans-serif, sans-serif;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --color-text-default-default: #1e1e1e;
+  --color-text-default-secondary: #757575;
+  --color-background-default-default: #fff;
+  --color-border-default-default: #d9d9d9;
+  --color-background-utilities-scrim: rgba(255, 255, 255, 0.8);
+  --color-text-utilities-text-on-overlay: #0c0c0d;
+  --color-background-neutral-tertiary: #e3e3e3;
+  --color-border-neutral-secondary: #767676;
+  --color-background-brand-default: #2c2c2c;
+  --color-border-brand-default: #2c2c2c;
+  --color-text-brand-on-brand: #f5f5f5;
+  --color-background-default-secondary: #f5f5f5;
+  --spacing-space-200: 8px;
+  --spacing-space-400: 16px;
+  --spacing-space-300: 12px;
+  --spacing-space-800: 32px;
+  --spacing-space-600: 24px;
+  --radius-radius-200: 8px;
+  --radius-scale-06: 32px;
+  --font-size-body-size-medium: 16px;
+  --font-size-title-hero-size: 72px;
+  --font-size-subtitle-size-base: 32px;
+  --font-size-subheading-size-medium: 20px;
+  --font-weight-title-hero-font-weight: 700;
+  --font-weight-body-font-weight-strong: 600;
+  --letter-spacing-num--0_03: -0.03em;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
