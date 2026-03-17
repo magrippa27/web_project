@@ -7,9 +7,14 @@ import { Input } from "../../shared/components/ui";
 import DayDistributionPie from "./components/DayDistributionPie";
 import TimeToMoneyTable from "./components/TimeToMoneyTable";
 import LocalTimePlayer from "./components/LocalTimePlayer";
+import TaxBreakdownTable from "./components/TaxBreakdownTable";
+import TaxTimeSection from "./components/TaxTimeSection";
+import CpiSlides from "./components/CpiSlides";
 
 export default function TimeCost1Page() {
   const resultsRef = useRef<HTMLDivElement>(null);
+  const taxSectionRef = useRef<HTMLDivElement>(null);
+  const cpiSectionRef = useRef<HTMLDivElement>(null);
   const [country, setCountry] = useState("");
   const [age, setAge] = useState("");
   const [monthlyIncome, setMonthlyIncome] = useState("");
@@ -30,6 +35,16 @@ export default function TimeCost1Page() {
       return;
     }
     resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const t1 = window.setTimeout(() => {
+      taxSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 3800);
+    const t2 = window.setTimeout(() => {
+      cpiSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 7600);
+    return () => {
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+    };
   }, [submitted]);
 
   function parsePositiveNumber(value: string) {
@@ -234,6 +249,28 @@ export default function TimeCost1Page() {
               monthlyIncome={parsePositiveNumber(submitted.monthlyIncome)}
               workHoursPerDay={parsePositiveNumber(submitted.workHoursPerDay)}
             />
+
+            <div
+              ref={taxSectionRef}
+              className="mt-10 flex flex-col items-center gap-10"
+            >
+              <h3 className="text-[clamp(1.8rem,3.3vw,2.4rem)] font-semibold text-text-default-default text-center">
+                How much you get after taxes
+              </h3>
+              <TaxBreakdownTable
+                monthlyIncome={parsePositiveNumber(submitted.monthlyIncome)}
+                workHoursPerDay={parsePositiveNumber(submitted.workHoursPerDay)}
+              />
+
+              <h3 className="mt-16 text-[clamp(1.8rem,3.3vw,2.4rem)] font-semibold text-text-default-default text-center">
+                How much of your time is spent for paying taxes?
+              </h3>
+              <TaxTimeSection />
+            </div>
+
+            <div ref={cpiSectionRef}>
+              <CpiSlides />
+            </div>
           </div>
         )}
       </div>
