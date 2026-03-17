@@ -30,7 +30,7 @@ export default function CpiSlides({ autoAdvance = true }: CpiSlidesProps) {
         className="min-h-screen w-full flex items-start"
       >
         <div className="max-w-[1440px] mx-auto w-full">
-          <div className="relative min-h-screen px-6 py-16 lg:px-0">
+          <div className="relative min-h-screen px-6 py-16 lg:px-0 lg:max-w-[1100px] lg:mx-auto lg:transform lg:-translate-x-24">
             <div className="lg:hidden">
               <div className="text-center">
                 <h2 className="m-0 text-[clamp(2.6rem,7vw,3.6rem)] leading-[1.05] font-title-hero-font-family font-title-hero-font-weight tracking-[-1.2px] text-text-default-default">
@@ -102,7 +102,7 @@ export default function CpiSlides({ autoAdvance = true }: CpiSlidesProps) {
         className="min-h-screen w-full flex items-center"
       >
         <div className="max-w-[1440px] mx-auto w-full">
-          <div className="relative min-h-screen px-6 py-16 lg:px-0">
+          <div className="relative min-h-screen px-6 py-16 lg:px-0 lg:max-w-[1100px] lg:mx-auto lg:transform lg:-translate-x-24">
             <div className="lg:hidden space-y-8">
               <h3 className="m-0 text-[clamp(2rem,6vw,2.6rem)] font-semibold text-text-default-default leading-tight">
                 Your country has a corruption perception index of {cpiValue}
@@ -161,7 +161,7 @@ export default function CpiSlides({ autoAdvance = true }: CpiSlidesProps) {
         className="min-h-screen w-full flex items-center"
       >
         <div className="max-w-[1440px] mx-auto w-full">
-          <div className="relative min-h-screen px-6 py-16 lg:px-0">
+          <div className="relative min-h-screen px-6 py-16 lg:px-0 lg:max-w-[1100px] lg:mx-auto lg:transform lg:-translate-x-24">
             <div className="lg:hidden space-y-10">
               <h3 className="m-0 text-[clamp(2rem,6vw,2.8rem)] font-semibold text-text-default-default">Get involved.</h3>
               <div className="space-y-3">
@@ -174,15 +174,15 @@ export default function CpiSlides({ autoAdvance = true }: CpiSlidesProps) {
                 <p className="m-0 text-[clamp(1.4rem,5vw,2rem)] font-semibold text-text-default-default">Develop critical thinking</p>
                 <p className="text-sm leading-[1.45] text-neutral-800">Listen, question, and respect different opinions.</p>
               </div>
+              <h3 className="m-0 text-[clamp(1.9rem,6vw,2.7rem)] font-semibold text-text-default-default">
+                Time is all you truly have.
+              </h3>
               <div className="pt-8 space-y-3">
                 <p className="text-sm leading-[1.45] text-neutral-800">
                   “The price good men pay for indifference to public affairs is to be ruled by inferior men.”
                 </p>
                 <p className="text-sm text-neutral-600">— Plato</p>
               </div>
-              <h3 className="m-0 text-[clamp(1.9rem,6vw,2.7rem)] font-semibold text-text-default-default">
-                Time is all you truly have.
-              </h3>
             </div>
 
             <div className="hidden lg:block">
@@ -216,18 +216,17 @@ export default function CpiSlides({ autoAdvance = true }: CpiSlidesProps) {
                 </p>
               </div>
 
-              <div className="absolute left-[58px] top-[845px] w-[1323px]">
-                <p className="m-0 text-[16px] leading-[1.35] text-neutral-800">
-                  “The price good men pay for indifference to public affairs is to be ruled by inferior men.”
-                  <span className="inline-block w-full" />
-                  — Plato
-                </p>
-              </div>
-
-              <div className="absolute left-[366px] top-[1140px] w-[830px]">
-                <h3 className="m-0 text-[48px] leading-[1.05] font-title-hero-font-family font-title-hero-font-weight text-text-default-default text-center">
+              <div className="absolute left-[57px] top-[845px] w-[564px]">
+                <h3 className="m-0 text-[48px] leading-[1.05] font-title-hero-font-family font-title-hero-font-weight text-text-default-default whitespace-nowrap">
                   Time is all you truly have.
                 </h3>
+              </div>
+
+              <div className="absolute left-[575px] top-[1115px] w-[802px]">
+                <p className="m-0 text-[18px] leading-[1.6] text-neutral-900">
+                  “The price good men pay for indifference to public affairs is to be ruled by inferior men.”
+                </p>
+                <p className="mt-4 text-[16px] leading-[1.4] font-semibold text-neutral-900">— Plato</p>
               </div>
             </div>
           </div>
