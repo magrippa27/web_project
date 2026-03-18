@@ -1,18 +1,54 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HeroImage from "../../assets/coins.jpg";
 import CountrySelect, { getCountryName } from "../../shared/components/CountrySelect";
 import Star from "../../shared/components/Star";
-import { Card, CardContent, CardHeader } from "../../shared/components/ui";
 import { Input } from "../../shared/components/ui";
+import ClosingMessageSection from "./components/ClosingMessageSection";
+import CountryStorySection from "./components/CountryStorySection";
+import DefinitionsSection from "./components/DefinitionsSection";
+import InflationMessageSection from "./components/InflationMessageSection";
+import UnequalImpactSection from "./components/UnequalImpactSection";
+import UserInfoCard from "./components/UserInfoCard";
 
 export default function TimeInflationPage() {
   const resultsRef = useRef<HTMLDivElement>(null);
+  const definitionsRef = useRef<HTMLElement>(null);
+  const countryStoryRef = useRef<HTMLElement>(null);
   const [country, setCountry] = useState("");
   const [age, setAge] = useState("");
   const [monthlyIncome1, setMonthlyIncome1] = useState("");
   const [monthlyIncome2, setMonthlyIncome2] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState<{ countryCode: string; age: string; monthlyIncome1: string; monthlyIncome2: string } | null>(null);
+
+  useEffect(() => {
+    if (!submitted) {
+      return;
+    }
+    resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const t = window.setTimeout(() => {
+      definitionsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 2200);
+    const t2 = window.setTimeout(() => {
+      countryStoryRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 4600);
+    return () => {
+      window.clearTimeout(t);
+      window.clearTimeout(t2);
+    };
+  }, [submitted]);
+
+  function parsePositiveNumber(value: string) {
+    const trimmed = value.trim();
+    if (!trimmed) {
+      return null;
+    }
+    const parsed = Number(trimmed.replace(/,/g, ""));
+    if (!Number.isFinite(parsed) || parsed <= 0) {
+      return null;
+    }
+    return parsed;
+  }
 
   function handleProceed() {
     setIsSubmitting(true);
@@ -23,10 +59,24 @@ export default function TimeInflationPage() {
       monthlyIncome2: monthlyIncome2 || "—",
     });
     setTimeout(() => {
-      resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       setIsSubmitting(false);
-    }, 1600);
+    }, 800);
   }
+
+  const incomePast = submitted ? parsePositiveNumber(submitted.monthlyIncome1) : null;
+  const incomeToday = submitted ? parsePositiveNumber(submitted.monthlyIncome2) : null;
+  const basketCost = 500;
+  const workHoursPerMonth = 160;
+  const hourlyPast = incomePast ? incomePast / workHoursPerMonth : null;
+  const hourlyToday = incomeToday ? incomeToday / workHoursPerMonth : null;
+  const pastHoursForBasket = hourlyPast ? basketCost / hourlyPast : null;
+  const todayHoursForBasket = hourlyToday ? basketCost / hourlyToday : null;
+  const earningsChangePct =
+    incomePast && incomeToday ? ((incomeToday - incomePast) / incomePast) * 100 : null;
+  const cpiChangePct =
+    earningsChangePct == null ? null : Math.max(earningsChangePct + 10, earningsChangePct + 2);
+  const realChangePct =
+    earningsChangePct == null || cpiChangePct == null ? null : earningsChangePct - cpiChangePct;
 
   return (
     <div className="w-full min-h-screen bg-background-default-default">
@@ -108,31 +158,28 @@ export default function TimeInflationPage() {
             ref={resultsRef}
             className="scroll-mt-8 transition-all duration-500"
           >
-            <Card className="rounded-xl border-2 border-neutral-200 bg-white shadow-lg overflow-hidden">
-              <CardHeader className="text-xl font-semibold text-neutral-900 pb-2">
-                These are your information
-              </CardHeader>
-              <CardContent className="pt-0">
-                <div className="max-h-[min(60vh,400px)] overflow-y-auto pr-2 space-y-4 text-[var(--color-text)]">
-                  <div className="flex flex-wrap gap-x-4 gap-y-1 py-2 border-b border-neutral-100">
-                    <span className="text-neutral-500 font-medium min-w-[140px]">Country</span>
-                    <span>{getCountryName(submitted.countryCode)}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-x-4 gap-y-1 py-2 border-b border-neutral-100">
-                    <span className="text-neutral-500 font-medium min-w-[140px]">Age</span>
-                    <span>{submitted.age}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-x-4 gap-y-1 py-2 border-b border-neutral-100">
-                    <span className="text-neutral-500 font-medium min-w-[140px]">Monthly Income (Gross)</span>
-                    <span>{submitted.monthlyIncome1}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-x-4 gap-y-1 py-2">
-                    <span className="text-neutral-500 font-medium min-w-[140px]">Monthly Income (Gross)</span>
-                    <span>{submitted.monthlyIncome2}</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <UserInfoCard
+              countryName={getCountryName(submitted.countryCode) || ""}
+              age={submitted.age}
+              monthlyIncome1={submitted.monthlyIncome1}
+              monthlyIncome2={submitted.monthlyIncome2}
+            />
+
+            <DefinitionsSection sectionRef={definitionsRef} />
+
+            <CountryStorySection
+              sectionRef={countryStoryRef}
+              countryName={getCountryName(submitted.countryCode) || ""}
+              cpiChangePct={cpiChangePct}
+              earningsChangePct={earningsChangePct}
+              realChangePct={realChangePct}
+              pastHoursForBasket={pastHoursForBasket}
+              todayHoursForBasket={todayHoursForBasket}
+            />
+
+            <InflationMessageSection />
+            <UnequalImpactSection />
+            <ClosingMessageSection />
           </div>
         )}
       </div>
