@@ -7,7 +7,7 @@ export interface NavItem {
 }
 
 interface NavigationPillListProps {
-  items: NavItem[];
+  items?: NavItem[];
   className?: string;
   direction?: "Row" | "Column";
   onNavigate?: () => void;

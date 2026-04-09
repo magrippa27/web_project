@@ -3,6 +3,8 @@
 @import url("https://fonts.googleapis.com/css2?family=SF+Pro+Text:ital,wght@0,400;0,500&display=swap");
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-primary: #3b82f6;
   --color-primary-hover: #2563eb;
@@ -43,6 +45,34 @@
   --letter-spacing-num--0_03: -0.03em;
 }
 
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+  --color-primary: #60a5fa;
+  --color-primary-hover: #3b82f6;
+  --color-background: #0c0c0c;
+  --color-surface: #141414;
+  --color-text: #e2e8f0;
+  --color-text-muted: #94a3b8;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.45), 0 2px 4px -2px rgb(0 0 0 / 0.35);
+  --color-text-default-default: #e5e5e5;
+  --color-text-default-secondary: #a3a3a3;
+  --color-background-default-default: #0c0c0c;
+  --color-border-default-default: #404040;
+  --color-background-utilities-scrim: rgba(0, 0, 0, 0.72);
+  --color-text-utilities-text-on-overlay: #f5f5f5;
+  --color-background-neutral-tertiary: #262626;
+  --color-border-neutral-secondary: #737373;
+  --color-background-brand-default: #e5e5e5;
+  --color-border-brand-default: #e5e5e5;
+  --color-text-brand-on-brand: #171717;
+  --color-background-default-secondary: #1a1a1a;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -55,4 +85,59 @@ body {
 
 #root {
   min-height: 100vh;
+}
+
+.dark .country-select [class*="ReactFlagsSelect-module_selectBtn"] {
+  color: var(--color-text-default-default) !important;
+  background-color: var(--color-background-default-default) !important;
+  border-color: var(--color-border-default-default) !important;
+}
+
+.dark .country-select [class*="ReactFlagsSelect-module_selectBtn"]:not([aria-expanded="true"])::after {
+  border-top-color: var(--color-text-default-secondary) !important;
+}
+
+.dark .country-select [class*="ReactFlagsSelect-module_selectBtn"][aria-expanded="true"]::after {
+  border-bottom-color: var(--color-text-default-secondary) !important;
+  border-top-color: transparent !important;
+}
+
+.dark .country-select [class*="ReactFlagsSelect-module_label"] {
+  color: var(--color-text-default-default) !important;
+}
+
+.dark .country-select [class*="ReactFlagsSelect-module_secondaryLabel"] {
+  color: var(--color-text-default-secondary) !important;
+}
+
+.dark .country-select ul[role="listbox"],
+.dark .country-select [class*="ReactFlagsSelect-module_selectOptions"] {
+  background-color: var(--color-background-default-default) !important;
+  color: var(--color-text-default-default) !important;
+  border-color: var(--color-border-default-default) !important;
+  box-shadow: var(--shadow-md);
+}
+
+.dark .country-select [class*="ReactFlagsSelect-module_filterBox"] {
+  background-color: var(--color-background-default-default) !important;
+}
+
+.dark .country-select [class*="ReactFlagsSelect-module_filterBox"] input {
+  background-color: var(--color-background-default-secondary) !important;
+  color: var(--color-text-default-default) !important;
+  border: 1px solid var(--color-border-default-default) !important;
+  border-radius: 6px;
+}
+
+.dark .country-select [class*="ReactFlagsSelect-module_filterBox"] input::placeholder {
+  color: var(--color-text-default-secondary) !important;
+}
+
+.dark .country-select [class*="ReactFlagsSelect-module_selectOption"]:hover,
+.dark .country-select [class*="ReactFlagsSelect-module_selectOption"]:focus {
+  background-color: var(--color-background-neutral-tertiary) !important;
+}
+
+.dark .country-select [class*="ReactFlagsSelect-module_selectOption"] {
+  color: var(--color-text-default-default) !important;
 }

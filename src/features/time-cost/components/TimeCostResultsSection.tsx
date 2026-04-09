@@ -56,8 +56,8 @@ export default function TimeCostResultsSection({
           leisureHoursPerDay={submitted.leisureHoursPerDay}
         />
 
-        <Card className="rounded-xl border-2 border-neutral-200 bg-white shadow-lg overflow-hidden">
-          <CardHeader className="text-xl font-semibold text-neutral-900 pb-2">
+        <Card className="rounded-xl border-2 border-border-default-default bg-background-default-default shadow-lg overflow-hidden">
+          <CardHeader className="text-xl font-semibold text-text-default-default pb-2">
             How your 24 hours look
           </CardHeader>
           <CardContent className="pt-4">

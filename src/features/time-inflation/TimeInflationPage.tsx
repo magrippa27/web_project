@@ -124,7 +124,7 @@ export default function TimeInflationPage() {
             placeholder="e.g. 30"
             value={age}
             onChange={(e) => setAge(e.target.value)}
-            className="rounded-lg border-2 border-neutral-300 bg-white"
+            className="rounded-lg border-2 border-border-default-default bg-background-default-default"
           />
           <Input
             label="Monthly Income (Gross)"
@@ -132,7 +132,7 @@ export default function TimeInflationPage() {
             placeholder="e.g. 2000"
             value={monthlyIncome1}
             onChange={(e) => setMonthlyIncome1(e.target.value)}
-            className="rounded-lg border-2 border-neutral-300 bg-white"
+            className="rounded-lg border-2 border-border-default-default bg-background-default-default"
           />
           <Input
             label="Monthly Income (Gross)"
@@ -140,7 +140,7 @@ export default function TimeInflationPage() {
             placeholder="e.g. 2500"
             value={monthlyIncome2}
             onChange={(e) => setMonthlyIncome2(e.target.value)}
-            className="rounded-lg border-2 border-neutral-300 bg-white"
+            className="rounded-lg border-2 border-border-default-default bg-background-default-default"
           />
         </div>
 

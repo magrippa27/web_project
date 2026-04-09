@@ -8,14 +8,6 @@ type Row = {
   hours: number;
 };
 
-const rows: Row[] = [
-  { label: "One hour", hours: 1 },
-  { label: "One day", hours: 0 },
-  { label: "One week", hours: 0 },
-  { label: "One month", hours: 0 },
-  { label: "One year", hours: 0 },
-];
-
 function formatCurrency(amount: number | null) {
   if (!amount || !Number.isFinite(amount)) {
     return "–";
@@ -37,7 +29,7 @@ export default function TimeToMoneyTable({ monthlyIncome, workHoursPerDay }: Tim
 
   if (!baseMonthly) {
     return (
-      <div className="mt-8 mb-16 flex flex-col items-center text-center text-sm text-neutral-500">
+      <div className="mt-8 mb-16 flex flex-col items-center text-center text-sm text-text-default-secondary">
         <p>We could not calculate your time-cost because the monthly income values were not valid.</p>
       </div>
     );
@@ -56,23 +48,23 @@ export default function TimeToMoneyTable({ monthlyIncome, workHoursPerDay }: Tim
 
   return (
     <div className="mb-20 flex flex-col items-center gap-8">
-      <div className="flex items-center gap-6 text-4xl md:text-5xl text-neutral-900">
-        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-neutral-300 bg-white">
+      <div className="flex items-center gap-6 text-4xl md:text-5xl text-text-default-default">
+        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-border-default-default bg-background-default-default">
           ⏳
         </span>
         <span className="text-3xl">→</span>
-        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-neutral-300 bg-white">
+        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-border-default-default bg-background-default-default">
           💰
         </span>
       </div>
-      <div className="w-full max-w-[560px] rounded-xl border border-neutral-200 bg-white shadow-sm px-6 py-4">
+      <div className="w-full max-w-[560px] rounded-xl border border-border-default-default bg-background-default-default shadow-sm px-6 py-4">
         <div className="flex flex-col gap-3">
           {effectiveRows.map((row) => {
             const amount = hourlyRate > 0 ? hourlyRate * row.hours : null;
             return (
-              <div key={row.label} className="flex items-baseline justify-between gap-4 border-b last:border-b-0 border-neutral-100 py-2">
-                <span className="text-sm md:text-base text-neutral-600">{row.label}</span>
-                <span className="text-sm md:text-base font-semibold text-neutral-900">
+              <div key={row.label} className="flex items-baseline justify-between gap-4 border-b last:border-b-0 border-border-default-default/50 py-2">
+                <span className="text-sm md:text-base text-text-default-secondary">{row.label}</span>
+                <span className="text-sm md:text-base font-semibold text-text-default-default">
                   {formatCurrency(amount)}
                 </span>
               </div>

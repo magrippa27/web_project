@@ -29,13 +29,14 @@ export default function CountrySelect({
   placeholder = "Select country",
 }: CountrySelectProps) {
   return (
-    <div className={`flex flex-col gap-1 ${className}`}>
+    <div className={`country-select flex flex-col gap-1 ${className}`}>
       {label && (
         <label htmlFor={id} className="text-sm font-medium text-[var(--color-text)]">
           {label}
         </label>
       )}
       <ReactFlagsSelect
+        className="country-select-rfs"
         selected={value}
         onSelect={onChange}
         searchable
@@ -45,7 +46,7 @@ export default function CountrySelect({
         showOptionLabel
         showSecondarySelectedLabel={false}
         showSecondaryOptionLabel={false}
-        selectButtonClassName="!rounded-lg !border-2 !border-neutral-300 !bg-white !px-4 !py-3 !min-h-[46px]"
+        selectButtonClassName="!rounded-lg !border-2 !border-border-default-default !bg-background-default-default !text-text-default-default !px-4 !py-3 !min-h-[46px] !font-inherit"
         optionsSize={14}
         selectedSize={14}
         fullWidth

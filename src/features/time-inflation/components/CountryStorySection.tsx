@@ -22,18 +22,18 @@ export default function CountryStorySection({
   return (
     <section
       ref={sectionRef}
-      className="mt-14 rounded-[4px] bg-white px-10 py-14 shadow-sm border border-neutral-200 scroll-mt-8"
+      className="mt-14 rounded-[4px] bg-background-default-default px-10 py-14 shadow-sm border border-border-default-default scroll-mt-8"
       aria-label="Country story"
     >
-      <h2 className="m-0 text-center text-[clamp(2.4rem,5vw,3.6rem)] font-semibold text-neutral-900 leading-[1.05]">
+      <h2 className="m-0 text-center text-[clamp(2.4rem,5vw,3.6rem)] font-semibold text-text-default-default leading-[1.05]">
         <span>Your Country:</span>
         <br />
         <span>{countryName || "—"}</span>
       </h2>
 
       <div className="mt-10 flex justify-center">
-        <div className="w-full max-w-[520px] rounded-md bg-neutral-50 border border-neutral-200 px-4 py-5">
-          <div className="flex flex-wrap items-center justify-center gap-4 text-[11px] text-neutral-600">
+        <div className="w-full max-w-[520px] rounded-md bg-background-default-secondary border border-border-default-default px-4 py-5">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-[11px] text-text-default-secondary">
             <div className="flex items-center gap-2">
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#7b1f1f]" />
               <span>Average hourly earnings</span>
@@ -68,7 +68,7 @@ export default function CountryStorySection({
                 </clipPath>
               </defs>
               <rect x="0" y="0" width="520" height="280" fill="transparent" />
-              <g stroke="#d8dee5" strokeWidth="1">
+              <g stroke="var(--color-border-default-default)" strokeWidth="1">
                 <line x1="40" y1="240" x2="470" y2="240" />
                 <line x1="40" y1="196" x2="470" y2="196" />
                 <line x1="40" y1="152" x2="470" y2="152" />
@@ -95,7 +95,7 @@ export default function CountryStorySection({
         </div>
       </div>
 
-      <div className="mt-10 text-center text-neutral-800">
+      <div className="mt-10 text-center text-text-default-default">
         <p className="m-0 text-[16px] leading-[1.35]">
           In the past, you needed about{" "}
           <span className="font-semibold">
@@ -109,7 +109,7 @@ export default function CountryStorySection({
           </span>{" "}
           hours of work for the same things.
         </p>
-        <p className="mt-10 text-[15px] text-neutral-700">
+        <p className="mt-10 text-[15px] text-text-default-secondary">
           Your time has become less valuable.
         </p>
       </div>

@@ -16,7 +16,7 @@ export default function DayDistributionPie({ workHours, sleepHours, leisureHours
 
   if (sum <= 0) {
     return (
-      <div className="flex h-[260px] items-center justify-center text-sm text-neutral-500">
+      <div className="flex h-[260px] items-center justify-center text-sm text-text-default-secondary">
         Add your daily hours above to see how your day is split.
       </div>
     );
@@ -53,9 +53,19 @@ export default function DayDistributionPie({ workHours, sleepHours, leisureHours
             ))}
           </Pie>
           <Tooltip
-            formatter={(value: number, name: string) => {
-              const percent = (value / 24) * 100;
-              return [`${percent.toFixed(1)}%`, name];
+            contentStyle={{
+              backgroundColor: "var(--color-background-default-default)",
+              border: "1px solid var(--color-border-default-default)",
+              borderRadius: "8px",
+              color: "var(--color-text-default-default)",
+            }}
+            formatter={(value, name) => {
+              const num = typeof value === "number" ? value : Number(value);
+              if (!Number.isFinite(num)) {
+                return ["", String(name)];
+              }
+              const percent = (num / 24) * 100;
+              return [`${percent.toFixed(1)}%`, String(name)];
             }}
           />
           <Legend />

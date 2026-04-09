@@ -129,7 +129,7 @@ export default function TimeCost1Page() {
             placeholder="e.g. 30"
             value={age}
             onChange={(e) => setAge(e.target.value)}
-            className="rounded-lg border-2 border-neutral-300 bg-white"
+            className="rounded-lg border-2 border-border-default-default bg-background-default-default"
           />
           <Input
             label="Monthly Income (Gross)"
@@ -137,7 +137,7 @@ export default function TimeCost1Page() {
             placeholder="e.g. 2000"
             value={monthlyIncome}
             onChange={(e) => setMonthlyIncome(e.target.value)}
-            className="rounded-lg border-2 border-neutral-300 bg-white"
+            className="rounded-lg border-2 border-border-default-default bg-background-default-default"
           />
           <Input
             label="Hours you work per day"
@@ -145,12 +145,12 @@ export default function TimeCost1Page() {
             placeholder="e.g. 8"
             value={workHoursPerDay}
             onChange={(e) => setWorkHoursPerDay(e.target.value)}
-            className="rounded-lg border-2 border-neutral-300 bg-white"
+            className="rounded-lg border-2 border-border-default-default bg-background-default-default"
           />
         </div>
 
         {validationError && (
-          <div className="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+          <div className="mb-6 rounded-lg border border-red-500/35 bg-red-500/[0.08] px-4 py-3 text-sm text-red-700 dark:text-red-300">
             {validationError}
           </div>
         )}

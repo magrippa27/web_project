@@ -27,19 +27,19 @@ const INITIAL_POSTS: Post[] = [
 
 function PostCard({ post }: { post: Post }) {
   return (
-    <article className="flex rounded-lg border-2 border-neutral-200 bg-white shadow-sm overflow-hidden min-h-[223px]">
-      <div className="w-10 shrink-0 bg-neutral-100 flex flex-col items-center justify-start py-2 px-1.5" aria-label="Upvotes">
-        <button type="button" className="text-neutral-500 hover:text-neutral-700 p-1 rounded leading-none" aria-label="Upvote">
+    <article className="flex rounded-lg border-2 border-border-default-default bg-background-default-default shadow-sm overflow-hidden min-h-[223px]">
+      <div className="w-10 shrink-0 bg-background-default-secondary flex flex-col items-center justify-start py-2 px-1.5" aria-label="Upvotes">
+        <button type="button" className="text-text-default-secondary hover:text-text-default-default p-1 rounded leading-none" aria-label="Upvote">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M18 15l-6-6-6 6" />
           </svg>
         </button>
       </div>
       <div className="flex-1 flex flex-col gap-2 p-5 min-w-0">
-        <h3 className="font-medium text-lg text-neutral-900 leading-tight">
+        <h3 className="font-medium text-lg text-text-default-default leading-tight">
           {post.title}
         </h3>
-        <p className="text-sm text-neutral-800 leading-[1.5] line-clamp-5">
+        <p className="text-sm text-text-default-default leading-[1.5] line-clamp-5">
           {post.body}
         </p>
       </div>
@@ -66,9 +66,9 @@ export default function HowToFixDemocracyPage() {
   }
 
   return (
-    <div className="w-full min-h-screen bg-white">
+    <div className="w-full min-h-screen bg-background-default-default">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-8 pb-24">
-        <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold tracking-tight text-neutral-900 mb-10">
+        <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold tracking-tight text-text-default-default mb-10">
           How to fix Democracy?
         </h1>
 
@@ -80,7 +80,7 @@ export default function HowToFixDemocracyPage() {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-lg border-2 border-neutral-300 bg-white shadow-sm overflow-hidden focus-within:border-neutral-500 focus-within:ring-2 focus-within:ring-neutral-400/20 focus-within:ring-offset-0 max-w-3xl mx-auto"
+          className="rounded-lg border-2 border-border-default-default bg-background-default-default shadow-sm overflow-hidden focus-within:border-border-neutral-secondary focus-within:ring-2 focus-within:ring-border-default-default/30 focus-within:ring-offset-0 max-w-3xl mx-auto"
         >
           <div className="p-4">
             <input
@@ -88,24 +88,24 @@ export default function HowToFixDemocracyPage() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Post title (optional)"
-              className="w-full border-0 outline-none text-lg font-medium text-neutral-900 placeholder:text-neutral-400 bg-transparent mb-2"
+              className="w-full border-0 outline-none text-lg font-medium text-text-default-default placeholder:text-text-default-secondary bg-transparent mb-2"
             />
             <textarea
               value={thoughts}
               onChange={(e) => setThoughts(e.target.value)}
               placeholder="What are your thoughts?"
               rows={4}
-              className="w-full border-0 outline-none resize-none text-sm text-neutral-900 placeholder:text-neutral-400 bg-transparent leading-[1.5]"
+              className="w-full border-0 outline-none resize-none text-sm text-text-default-default placeholder:text-text-default-secondary bg-transparent leading-[1.5]"
             />
           </div>
-          <div className="flex items-center justify-between gap-2 px-3 py-2 bg-neutral-50 border-t border-neutral-200">
+          <div className="flex items-center justify-between gap-2 px-3 py-2 bg-background-default-secondary border-t border-border-default-default">
             <div className="flex items-center gap-1">
-              <span className="text-xs text-neutral-500">Add your answer</span>
+              <span className="text-xs text-text-default-secondary">Add your answer</span>
             </div>
             <button
               type="submit"
               disabled={!thoughts.trim()}
-              className="rounded-full bg-neutral-900 text-white text-sm font-medium px-4 py-2 flex items-center gap-2 hover:bg-black focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none transition-colors cursor-pointer"
+              className="rounded-full bg-background-brand-default text-text-brand-on-brand text-sm font-medium px-4 py-2 flex items-center gap-2 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-border-neutral-secondary focus:ring-offset-2 focus:ring-offset-[var(--color-background-default-default)] disabled:opacity-50 disabled:pointer-events-none transition-colors cursor-pointer"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="20 6 9 17 4 12" />

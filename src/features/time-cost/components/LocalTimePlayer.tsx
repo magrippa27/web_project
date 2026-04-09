@@ -20,16 +20,18 @@ export default function LocalTimePlayer() {
       setIsPlaying(false);
     }
     function handleTimeUpdate() {
-      if (!Number.isFinite(audio.currentTime)) {
+      const el = audioRef.current;
+      if (!el || !Number.isFinite(el.currentTime)) {
         return;
       }
-      setCurrentTime(audio.currentTime);
+      setCurrentTime(el.currentTime);
     }
     function handleLoaded() {
-      if (!Number.isFinite(audio.duration)) {
+      const el = audioRef.current;
+      if (!el || !Number.isFinite(el.duration)) {
         return;
       }
-      setDuration(audio.duration);
+      setDuration(el.duration);
     }
     audio.addEventListener("play", handlePlay);
     audio.addEventListener("pause", handlePause);
@@ -92,7 +94,7 @@ export default function LocalTimePlayer() {
   }
 
   return (
-    <div className="w-full max-w-[560px] rounded-xl overflow-hidden border border-neutral-200 shadow-sm bg-neutral-900 text-white">
+    <div className="w-full max-w-[560px] rounded-xl overflow-hidden border border-border-default-default shadow-sm bg-neutral-900 text-white">
       <audio ref={audioRef} src={TimeAudio} preload="metadata" />
       <div className="flex items-center gap-4 px-4 py-3">
         <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md">
@@ -107,7 +109,7 @@ export default function LocalTimePlayer() {
             <button
               type="button"
               onClick={togglePlay}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500 text-black hover:bg-emerald-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500 text-black hover:bg-emerald-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-background-default-default)]"
             >
               {isPlaying ? (
                 <span className="text-lg leading-none">❚❚</span>

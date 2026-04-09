@@ -11,18 +11,18 @@ export default function DefinitionsSection({ sectionRef }: DefinitionsSectionPro
   return (
     <section
       ref={sectionRef}
-      className="mt-14 rounded-[4px] bg-white px-10 py-12 shadow-sm border border-neutral-200 scroll-mt-8"
+      className="mt-14 rounded-[4px] bg-background-default-default px-10 py-12 shadow-sm border border-border-default-default scroll-mt-8"
       aria-label="Definitions"
     >
-      <h2 className="m-0 text-center text-[clamp(2.2rem,4.5vw,3.4rem)] font-semibold text-neutral-900">
+      <h2 className="m-0 text-center text-[clamp(2.2rem,4.5vw,3.4rem)] font-semibold text-text-default-default">
         First, some definitions
       </h2>
 
       <div className="mt-12 space-y-16">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-10 items-start">
           <div>
-            <h3 className="m-0 text-[clamp(2.2rem,4.2vw,3rem)] font-semibold text-neutral-900">Inflation</h3>
-            <p className="mt-3 max-w-[760px] text-[15px] leading-[1.4] text-neutral-600">
+            <h3 className="m-0 text-[clamp(2.2rem,4.2vw,3rem)] font-semibold text-text-default-default">Inflation</h3>
+            <p className="mt-3 max-w-[760px] text-[15px] leading-[1.4] text-text-default-secondary">
               Inflation is the general increase in prices over time.
               <br />
               When inflation rises, the same amount of money buys fewer goods and services.
@@ -42,8 +42,8 @@ export default function DefinitionsSection({ sectionRef }: DefinitionsSectionPro
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-10 items-start">
           <div>
-            <h3 className="m-0 text-[clamp(2.2rem,4.2vw,3rem)] font-semibold text-neutral-900">CPI</h3>
-            <p className="mt-3 max-w-[760px] text-[15px] leading-[1.4] text-neutral-600">
+            <h3 className="m-0 text-[clamp(2.2rem,4.2vw,3rem)] font-semibold text-text-default-default">CPI</h3>
+            <p className="mt-3 max-w-[760px] text-[15px] leading-[1.4] text-text-default-secondary">
               The Consumer Price Index (CPI) measures how the prices of everyday goods and services change over time.
               <br />
               It is commonly used to track inflation and changes in the cost of living.
@@ -61,8 +61,8 @@ export default function DefinitionsSection({ sectionRef }: DefinitionsSectionPro
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-10 items-start">
           <div>
-            <h3 className="m-0 text-[clamp(2.2rem,4.2vw,3rem)] font-semibold text-neutral-900">Real wages</h3>
-            <p className="mt-3 max-w-[760px] text-[15px] leading-[1.4] text-neutral-600">
+            <h3 className="m-0 text-[clamp(2.2rem,4.2vw,3rem)] font-semibold text-text-default-default">Real wages</h3>
+            <p className="mt-3 max-w-[760px] text-[15px] leading-[1.4] text-text-default-secondary">
               Real wages represent how much your income can actually buy.
               <br />
               They are calculated by adjusting wages for inflation.
